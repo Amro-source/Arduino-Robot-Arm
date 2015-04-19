@@ -3,8 +3,11 @@ serial config:
 Board: Arduiono Pro / Pro Mini
 Port:  tty.usbseriala400eMNr
 Programmer: USBasploader
-*/
 
+Teach mode: After a reset the robot arm follows the teach in arm while simple mapping the analog inputs every 25ms to the servo motors. Pressing the button stores each servo position in a array
+Play mode: Double press the button switch to play mode. The sketch reads the array step by step and and moves the robot arm. For cool loocking movements i added a routine calculates different micro steps for each servo to have moving start and end sync on all axis. Also added a ramp for soft increase/decrease velocity. Shorter travel distances the robot does slow, longer distances with faster speed. Its all about timing so my thoughts in this moment
+Play Mode version 1.1 The gripper input is used to set the delay (0,1,3,15,60,300 seconds) after a loop is done. The switch (it was left from the project start) pauses the robot
+*/
 // Definition
 #include <Servo.h> // servo driver // servo header file
 
